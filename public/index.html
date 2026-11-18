@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#123b32">
+  <meta name="theme-color" content="#21483c">
   <title>Calçada Livre</title>
   <link rel="stylesheet" href="/style.css">
   <script type="module" src="/app.js"></script>
@@ -11,7 +11,7 @@
 <body>
   <header class="site-header">
     <div class="wrap header-content">
-      <a class="brand" href="#inicio"><span class="mark" aria-hidden="true">↗</span> Calçada Livre</a>
+      <a class="brand" href="#inicio"><span class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="6" cy="6" r="2"/><circle cx="18" cy="18" r="2"/><path d="M8 6h7a3 3 0 0 1 0 6H9a3 3 0 0 0 0 6h7"/></svg></span> Calçada Livre</a>
       <nav aria-label="Navegação principal">
         <a href="#registro">Registrar</a>
         <a href="#consulta">Acompanhar</a>
@@ -21,14 +21,20 @@
   </header>
   <main class="wrap" id="inicio">
     <section class="hero" aria-labelledby="title">
-      <p class="context">Projeto acadêmico · Palhoça, SC</p>
-      <h1 id="title">Um caminho livre<br> começa aqui.</h1>
-      <p>Registre uma barreira em calçadas ou travessias e acompanhe o que acontece com seu relato.</p>
-      <a class="button hero-button" href="#registro">Registrar uma barreira <span aria-hidden="true">↘</span></a>
+      <div class="hero-content">
+        <p class="context">Palhoça, SC</p>
+        <h1 id="title">Barreiras nas calçadas</h1>
+        <p>Encontrou uma rampa bloqueada, uma calçada quebrada ou uma travessia difícil? Informe o local e acompanhe o relato pelo protocolo.</p>
+        <a class="button hero-button" href="#registro">Registrar uma barreira <span aria-hidden="true">↓</span></a>
+      </div>
+      <figure class="hero-photo">
+        <img src="/travessia.webp" alt="Esquina de uma rua de bairro com faixa de pedestres e rampa na calçada." width="900" height="600" fetchpriority="high">
+        <figcaption>Imagem ilustrativa</figcaption>
+      </figure>
     </section>
     <div class="columns">
       <section id="registro" class="card" aria-labelledby="report-title">
-        <h2 id="report-title">Registrar barreira</h2>
+        <h2 id="report-title"><span class="section-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 10c0 5-8 10-8 10s-8-5-8-10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg></span>Registrar barreira</h2>
         <p>Informe um endereço ou ponto de referência.</p>
         <form id="report-form">
           <label for="location">Local da barreira</label>
@@ -52,8 +58,8 @@
         </div>
       </section>
       <section id="consulta" class="card" aria-labelledby="track-title">
-        <h2 id="track-title">Acompanhar relato</h2>
-        <p>Consulte o andamento pelo código recebido no registro.</p>
+        <h2 id="track-title"><span class="section-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="10.5" cy="10.5" r="5.5"/><path d="m15 15 5 5"/></svg></span>Acompanhar relato</h2>
+        <p>Use o protocolo recebido ao enviar o relato.</p>
         <form id="track-form">
           <label for="protocol">Protocolo</label>
           <input id="protocol" name="protocol" required pattern="[Cc][Ll]-(?:[A-Fa-f0-9]{6}-){3}[A-Fa-f0-9]{6}" spellcheck="false" autocomplete="off" placeholder="CL-XXXXXX-XXXXXX-XXXXXX-XXXXXX">
@@ -69,8 +75,8 @@
       </section>
     </div>
     <section id="triagem" class="card operator" aria-labelledby="operator-title">
-      <h2 id="operator-title">Painel de triagem</h2>
-      <p>Acesso para o operador responsável pelos relatos.</p>
+      <h2 id="operator-title"><span class="section-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="5" y="5" width="14" height="16" rx="2"/><path d="M9 5V3h6v2M9 11h6m-6 4h6"/></svg></span>Painel de triagem</h2>
+      <p>Área da equipe responsável pela classificação dos relatos.</p>
       <form id="operator-form">
         <label for="key">Chave do operador</label>
         <input type="password" id="key" required autocomplete="off">

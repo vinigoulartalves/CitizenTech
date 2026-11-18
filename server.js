@@ -12,6 +12,7 @@ const assets = {
   '/': ['index.html', 'text/html'],
   '/app.js': ['app.js', 'text/javascript'],
   '/style.css': ['style.css', 'text/css'],
+  '/travessia.webp': ['travessia.webp', 'image/webp'],
 };
 
 function suggestCategory(description) {
@@ -103,7 +104,7 @@ export function createApp({ database = ':memory:', operatorKey, classifier = sug
       if (request.method === 'GET' && Object.hasOwn(assets, pathname)) {
         const [filename, type] = assets[pathname];
         const file = await readFile(new URL(`./public/${filename}`, import.meta.url));
-        return response.writeHead(200, { 'Content-Type': `${type}; charset=utf-8` }).end(file);
+        return response.writeHead(200, { 'Content-Type': type.startsWith('text/') ? `${type}; charset=utf-8` : type }).end(file);
       }
 
       if (request.method === 'POST' && pathname === '/api/relatos') {
