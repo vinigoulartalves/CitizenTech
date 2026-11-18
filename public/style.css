@@ -53,7 +53,6 @@ form > button, form > .actions { justify-self: start; margin-top: .65rem; }
 .status { display: inline-block; padding: .2rem .55rem; border-radius: .3rem; background: #d8edcd; color: #17442b; }
 #history { padding-left: 1.4rem; }
 #history li { margin-block: .6rem; }
-.operator { margin-top: 1rem; }
 #operator-form { max-width: 28rem; }
 .report-item { border-top: 1px solid #d7ded2; margin-top: 1rem; padding-top: 1rem; }
 .report-item img { display: block; max-width: min(100%, 22rem); margin-top: .75rem; border-radius: .4rem; }
@@ -62,3 +61,26 @@ footer { padding-block: 1.6rem; font-size: .9rem; }
   .columns, .hero { grid-template-columns: 1fr; }
   .hero-photo { min-block-size: 0; aspect-ratio: 16 / 7; }
 }
+
+fieldset { min-width: 0; padding: .65rem .8rem .85rem; margin: 0; border: 1px solid #c2cec0; border-radius: .35rem; }
+legend { padding-inline: .35rem; font-weight: 700; }
+fieldset label, .form-grid label { display: block; }
+.form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .35rem .65rem; }
+.address-line { grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); }
+.operator-page { margin-block: 1.6rem; }
+.operator-page h1 { font-size: clamp(2.3rem, 5vw, 3.6rem); }
+#login { max-width: 31rem; }
+.panel-header { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: .55rem; }
+.filters-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.status-summary { padding: .8rem 1rem; border-radius: .35rem; border-left: 5px solid currentColor; }
+.status-summary > span { display: block; font-size: .85rem; font-weight: 700; }
+.status-summary > h3, .status-summary > strong { display: block; font-size: clamp(1.65rem, 4.2vw, 2.3rem); font-weight: 750; line-height: 1.2; }
+.status-summary > p { margin: .35rem 0 0; font-size: .9rem; }
+.status-summary, .status[data-status="Recebido"] { background: #e1ebf6; color: #203f60; }
+[data-status="Em análise"] { background: #faebc6; color: #603b05; }
+[data-status="Encaminhado"] { background: #e9e2f3; color: #4a3266; }
+[data-status="Resolvido"] { background: #ddebd5; color: #23452e; }
+#track-status { scroll-margin-top: 2.5rem; }
+.receipt > .status-summary { margin-bottom: .65rem; }
+@media (max-width: 800px) { .filters-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 390px) { .filters-grid, .address-line { grid-template-columns: 1fr; } }

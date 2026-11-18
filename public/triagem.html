@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#21483c">
+  <title>Triagem | Calçada Livre</title>
+  <link rel="stylesheet" href="/style.css">
+  <script type="module" src="/triagem.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-content">
+      <a class="brand" href="/">Calçada Livre</a>
+      <nav aria-label="Navegação principal"><a href="/">Voltar à página do cidadão</a></nav>
+    </div>
+  </header>
+  <main class="wrap operator-page">
+    <h1>Painel de triagem</h1>
+    <p>Consulte, classifique e atualize as ocorrências registradas.</p>
+    <section class="card" id="login" aria-labelledby="login-title">
+      <h2 id="login-title">Entrar na área do operador</h2>
+      <form id="operator-form">
+        <label for="username">Usuário</label>
+        <input id="username" name="username" required maxlength="128" autocomplete="username">
+        <label for="password">Senha</label>
+        <input type="password" id="password" name="password" required maxlength="512" autocomplete="current-password">
+        <button type="submit">Entrar</button>
+      </form>
+    </section>
+    <p class="feedback" id="operator-message" role="status"></p>
+    <section class="card" id="operator-panel" aria-labelledby="reports-title" hidden>
+      <div class="panel-header">
+        <h2 id="reports-title" tabindex="-1">Ocorrências</h2>
+        <button type="button" class="secondary" id="operator-exit">Sair</button>
+      </div>
+      <form id="filters">
+        <div class="form-grid filters-grid">
+          <div><label for="start">Data da ocorrência a partir de</label><input type="date" id="start" name="start"></div>
+          <div><label for="end">Data da ocorrência até</label><input type="date" id="end" name="end"></div>
+          <div><label for="filter-status">Status</label><select id="filter-status" name="status"><option value="">Todos</option></select></div>
+          <div><label for="filter-category">Categoria</label><select id="filter-category" name="category"><option value="">Todas</option></select></div>
+        </div>
+        <div class="actions">
+          <button type="submit">Aplicar filtros</button>
+          <button type="button" class="secondary" id="clear-filters">Limpar filtros</button>
+        </div>
+      </form>
+      <p class="feedback" id="results-count" role="status"></p>
+      <div id="operator-reports"></div>
+    </section>
+  </main>
+  <footer class="wrap">Calçada Livre · FIAP Global Solution</footer>
+</body>
+</html>
