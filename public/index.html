@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#123b32">
+  <title>Calçada Livre</title>
+  <link rel="stylesheet" href="/style.css">
+  <script type="module" src="/app.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-content">
+      <a class="brand" href="#inicio"><span class="mark" aria-hidden="true">↗</span> Calçada Livre</a>
+      <nav aria-label="Navegação principal">
+        <a href="#registro">Registrar</a>
+        <a href="#consulta">Acompanhar</a>
+        <a href="#triagem">Triagem</a>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap" id="inicio">
+    <section class="hero" aria-labelledby="title">
+      <p class="context">Projeto acadêmico · Palhoça, SC</p>
+      <h1 id="title">Um caminho livre<br> começa aqui.</h1>
+      <p>Registre uma barreira em calçadas ou travessias e acompanhe o que acontece com seu relato.</p>
+      <a class="button hero-button" href="#registro">Registrar uma barreira <span aria-hidden="true">↘</span></a>
+    </section>
+    <div class="columns">
+      <section id="registro" class="card" aria-labelledby="report-title">
+        <h2 id="report-title">Registrar barreira</h2>
+        <p>Informe um endereço ou ponto de referência.</p>
+        <form id="report-form">
+          <label for="location">Local da barreira</label>
+          <input id="location" name="location" required minlength="5" maxlength="160" placeholder="Ex.: travessia em frente à unidade de saúde">
+          <label for="description">O que dificulta a passagem?</label>
+          <textarea id="description" name="description" required minlength="10" maxlength="600" rows="4" placeholder="Descreva o obstáculo. Evite informar dados pessoais."></textarea>
+          <label for="photo">Foto <span>(opcional)</span></label>
+          <input type="file" id="photo" name="photo" accept="image/jpeg,image/png" aria-describedby="photo-hint">
+          <small id="photo-hint">JPEG ou PNG, até 2 MB. Evite mostrar rostos e placas.</small>
+          <div class="actions">
+            <button type="submit">Enviar relato</button>
+            <button type="button" class="secondary" id="demo">Preencher exemplo</button>
+          </div>
+        </form>
+        <p class="feedback" id="report-message" role="status"></p>
+        <div id="receipt" class="receipt" hidden>
+          <strong>Relato recebido</strong>
+          <p>Guarde o protocolo para acompanhar o andamento.</p>
+          <p class="protocol" id="receipt-code"></p>
+          <a href="#consulta" id="track-new">Acompanhar este relato →</a>
+        </div>
+      </section>
+      <section id="consulta" class="card" aria-labelledby="track-title">
+        <h2 id="track-title">Acompanhar relato</h2>
+        <p>Consulte o andamento pelo código recebido no registro.</p>
+        <form id="track-form">
+          <label for="protocol">Protocolo</label>
+          <input id="protocol" name="protocol" required pattern="[Cc][Ll]-(?:[A-Fa-f0-9]{6}-){3}[A-Fa-f0-9]{6}" spellcheck="false" autocomplete="off" placeholder="CL-XXXXXX-XXXXXX-XXXXXX-XXXXXX">
+          <button type="submit">Consultar protocolo</button>
+        </form>
+        <p class="feedback" id="track-message" role="status"></p>
+        <div id="track-result" hidden>
+          <strong id="track-status" class="status"></strong>
+          <p id="track-category"></p>
+          <h3>Histórico</h3>
+          <ol id="history"></ol>
+        </div>
+      </section>
+    </div>
+    <section id="triagem" class="card operator" aria-labelledby="operator-title">
+      <h2 id="operator-title">Painel de triagem</h2>
+      <p>Acesso para o operador responsável pelos relatos.</p>
+      <form id="operator-form">
+        <label for="key">Chave do operador</label>
+        <input type="password" id="key" required autocomplete="off">
+        <div class="actions">
+          <button type="submit">Carregar relatos</button>
+          <button type="button" class="secondary" id="operator-exit" hidden>Sair</button>
+        </div>
+      </form>
+      <p class="feedback" id="operator-message" role="status"></p>
+      <div id="operator-reports"></div>
+    </section>
+  </main>
+  <footer class="wrap">Calçada Livre · FIAP Global Solution · Cenário simulado para demonstração acadêmica.</footer>
+</body>
+</html>
