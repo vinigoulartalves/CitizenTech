@@ -11,11 +11,11 @@
 <body>
   <header class="site-header">
     <div class="wrap header-content">
-      <a class="brand" href="#inicio"><span class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="6" cy="6" r="2"/><circle cx="18" cy="18" r="2"/><path d="M8 6h7a3 3 0 0 1 0 6H9a3 3 0 0 0 0 6h7"/></svg></span> Calçada Livre</a>
+      <a class="brand" href="#inicio"><img src="/logo.webp" alt="Calçada Livre" width="168" height="38"></a>
       <nav aria-label="Navegação principal">
         <a href="#registro">Registrar</a>
         <a href="#consulta">Acompanhar</a>
-        <a href="#triagem">Triagem</a>
+        <a href="/triagem">Área do operador</a>
       </nav>
     </div>
   </header>
@@ -28,17 +28,30 @@
         <a class="button hero-button" href="#registro">Registrar uma barreira <span aria-hidden="true">↓</span></a>
       </div>
       <figure class="hero-photo">
-        <img src="/travessia.webp" alt="Esquina de uma rua de bairro com faixa de pedestres e rampa na calçada." width="900" height="600" fetchpriority="high">
+        <img src="/travessia.webp" alt="Uma mulher em cadeira de rodas e um homem idoso sorriem perto de uma rampa de calçada e de uma faixa de pedestres." width="900" height="600" fetchpriority="high">
         <figcaption>Imagem ilustrativa</figcaption>
       </figure>
     </section>
     <div class="columns">
       <section id="registro" class="card" aria-labelledby="report-title">
         <h2 id="report-title"><span class="section-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 10c0 5-8 10-8 10s-8-5-8-10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg></span>Registrar barreira</h2>
-        <p>Informe um endereço ou ponto de referência.</p>
+        <p>Informe onde e quando você encontrou a barreira.</p>
         <form id="report-form">
-          <label for="location">Local da barreira</label>
-          <input id="location" name="location" required minlength="5" maxlength="160" placeholder="Ex.: travessia em frente à unidade de saúde">
+          <fieldset>
+            <legend>Endereço da barreira</legend>
+            <div class="form-grid address-line">
+              <div><label for="street">Rua ou avenida</label><input id="street" name="street" required minlength="3" maxlength="120"></div>
+              <div><label for="number">Número <span>(opcional)</span></label><input id="number" name="number" maxlength="20"></div>
+            </div>
+            <div class="form-grid">
+              <div><label for="neighborhood">Bairro</label><input id="neighborhood" name="neighborhood" required minlength="2" maxlength="80"></div>
+              <div><label for="city">Município</label><input id="city" name="city" required minlength="2" maxlength="80" value="Palhoça"></div>
+            </div>
+            <label for="reference">Ponto de referência <span>(opcional)</span></label>
+            <input id="reference" name="reference" maxlength="160" placeholder="Ex.: travessia em frente à unidade de saúde">
+          </fieldset>
+          <label for="observedOn">Data em que encontrou a barreira</label>
+          <input type="date" id="observedOn" name="observedOn" required>
           <label for="description">O que dificulta a passagem?</label>
           <textarea id="description" name="description" required minlength="10" maxlength="600" rows="4" placeholder="Descreva o obstáculo. Evite informar dados pessoais."></textarea>
           <label for="photo">Foto <span>(opcional)</span></label>
@@ -51,7 +64,7 @@
         </form>
         <p class="feedback" id="report-message" role="status"></p>
         <div id="receipt" class="receipt" hidden>
-          <strong>Relato recebido</strong>
+          <div class="status-summary" data-status="Recebido"><span>Status atual</span><strong>Recebido</strong></div>
           <p>Guarde o protocolo para acompanhar o andamento.</p>
           <p class="protocol" id="receipt-code"></p>
           <a href="#consulta" id="track-new">Acompanhar este relato →</a>
@@ -67,27 +80,17 @@
         </form>
         <p class="feedback" id="track-message" role="status"></p>
         <div id="track-result" hidden>
-          <strong id="track-status" class="status"></strong>
+          <div class="status-summary" id="track-summary">
+            <span>Status atual</span>
+            <h3 id="track-status" tabindex="-1"></h3>
+            <p id="track-latest"></p>
+          </div>
           <p id="track-category"></p>
           <h3>Histórico</h3>
           <ol id="history"></ol>
         </div>
       </section>
     </div>
-    <section id="triagem" class="card operator" aria-labelledby="operator-title">
-      <h2 id="operator-title"><span class="section-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="5" y="5" width="14" height="16" rx="2"/><path d="M9 5V3h6v2M9 11h6m-6 4h6"/></svg></span>Painel de triagem</h2>
-      <p>Área da equipe responsável pela classificação dos relatos.</p>
-      <form id="operator-form">
-        <label for="key">Chave do operador</label>
-        <input type="password" id="key" required autocomplete="off">
-        <div class="actions">
-          <button type="submit">Carregar relatos</button>
-          <button type="button" class="secondary" id="operator-exit" hidden>Sair</button>
-        </div>
-      </form>
-      <p class="feedback" id="operator-message" role="status"></p>
-      <div id="operator-reports"></div>
-    </section>
   </main>
   <footer class="wrap">Calçada Livre · FIAP Global Solution · Cenário simulado para demonstração acadêmica.</footer>
 </body>
