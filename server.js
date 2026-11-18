@@ -16,6 +16,7 @@ const assets = {
   '/ui.js': ['ui.js', 'text/javascript'],
   '/app.js': ['app.js', 'text/javascript'],
   '/style.css': ['style.css', 'text/css'],
+  '/logo.webp': ['logo.webp', 'image/webp'],
   '/travessia.webp': ['travessia.webp', 'image/webp'],
 };
 

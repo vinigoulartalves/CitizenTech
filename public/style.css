@@ -12,13 +12,13 @@ body { margin: 0; }
 .site-header { background: #fffdf8; border-bottom: 1px solid #dbdfd4; }
 .header-content, nav, .actions { display: flex; align-items: center; flex-wrap: wrap; gap: .7rem 1.2rem; }
 .header-content { justify-content: space-between; padding-block: .8rem; }
-nav a, .brand { text-decoration: none; font-weight: 700; }
-nav a:hover, .brand:hover { text-decoration: underline; }
+nav a { text-decoration: none; font-weight: 700; }
+nav a:hover { text-decoration: underline; }
 a { color: #235743; text-underline-offset: .2em; }
-.brand { display: inline-flex; align-items: center; gap: .6rem; font-size: 1.15rem; }
-.mark, .section-icon { display: inline-grid; place-items: center; flex: none; width: 2rem; height: 2rem; border-radius: .35rem; }
-.mark { background: #21483c; color: #fbf7e9; }
-.mark svg, .section-icon svg { width: 1.2rem; height: 1.2rem; }
+.brand { display: inline-flex; align-items: center; min-height: 44px; }
+.brand img { display: block; width: 168px; height: auto; }
+.section-icon { display: inline-grid; place-items: center; flex: none; width: 2rem; height: 2rem; border-radius: .35rem; }
+.section-icon svg { width: 1.2rem; height: 1.2rem; }
 .hero { display: grid; grid-template-columns: .9fr 1.1fr; align-items: stretch; margin-block: 1.65rem; border: 1px solid #d7ded2; border-radius: .65rem; overflow: hidden; background: #edf0e5; }
 .hero-content { align-self: center; padding: clamp(1.35rem, 4vw, 3.5rem); }
 .context { color: #405b4d; font-size: .86rem; font-weight: 700; margin: 0; }
